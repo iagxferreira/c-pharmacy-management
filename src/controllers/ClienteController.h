@@ -2,8 +2,8 @@
 // Created by Iago Ferreira on 22/01/2021.
 //
 
-#ifndef C_PHARMACY_CONTROLLER_CLIENTE_H
-#define C_PHARMACY_CONTROLLER_CLIENTE_H
+#ifndef PHARMACY_CONTROLLER_CLIENTE_H
+#define PHARMACY_CONTROLLER_CLIENTE_H
 
 int procurarCliente(FILE*, int);
 
@@ -17,5 +17,4 @@ void listarClientes(FILE*);
 
 void deletarCliente(FILE*);
 
-
-#endif //C_PHARMACY_CLIENTE_H
+#endif //PHARMACY_CONTROLLER_CLIENTE_H

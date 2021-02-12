@@ -8,6 +8,6 @@
 
 int init(){
     setlocale(LC_ALL, "pt_BR");
-    menuCliente();
+    menu();
     return 0;
 }

@@ -10,13 +10,13 @@ add_executable(
         models/Cliente.h
         models/Produto.h
         models/NotaFiscal.h
-        models/NotaFiscalItem.h
+        models/ItemNotaFiscal.h
         models/Vendedor.h
         models/Fornecedor.h
         models/NotaCompra.h
         models/ItemCompra.h
-        controllers/ClienteController.c controllers/ClienteController.h
+        controllers/FornecedorController.c controllers/ClienteController.h
         controllers/ProdutoController.c controllers/ProdutoController.h
         utils/Utils.h
         view/Menu.c view/Menu.h
-)
+        controllers/NotaFiscalController.c controllers/NotaFiscalController.h controllers/CompraController.cpp controllers/CompraController.h controllers/VendaController.c controllers/VendaController.h controllers/NotaCompraController.cpp controllers/NotaCompraController.h controllers/RelatorioController.c controllers/RelatorioController.h)

@@ -8,8 +8,8 @@
 typedef struct{
     unsigned long int id;
     unsigned long int idCliente;
-    unsigned long int idVendedor;
     char numeroNota[8];
+    unsigned long int idVendedor;
     char dataCompra[11];
     float valorTotal;
 }NotaFiscal;

@@ -4,13 +4,13 @@
 #include <stdio.h>
 #include "Utils.h"
 
-void lerString(char string[], int tamanho){
+void lerString(char* string, int tamanho){
     setbuf(stdin, NULL);
     fgets(string, tamanho, stdin);
     setbuf(stdin, NULL);
 }
 
-void lerInteiro(int * numero){
+void lerInteiro(int* numero){
     char buffer[256];
     setbuf(stdin, NULL);
     fgets(buffer, 256, stdin);
@@ -18,7 +18,7 @@ void lerInteiro(int * numero){
     *var = atoi(buffer);
 }
 
-void limparString(char string[]){
+void limparString(char *string){
     if(string[strlen(string) - 1 ] == '\n')
         string[strlen(string) - 1 ] = '\0'
 }
@@ -29,7 +29,7 @@ void estaNoIntervalo(const int numero, int base, int topo){
     return 1;
 }
 
-int validaCPF(char cpf[]){
+int validaCPF(char* cpf){
     int tam = strlen(cpf);
     if(!verificaInteiros(cpf, tam)!=11){
         return 0;
@@ -43,7 +43,7 @@ int validaCPF(char cpf[]){
     return 1;
 }
 
-int verificaInteiros(const char string[], int tamanho){
+int verificaInteiros(const char* string, int tamanho){
     int i=0, status = 0;
     do{
         if(estaNoIntervalo(var[i], '0', '9'))
@@ -53,7 +53,7 @@ int verificaInteiros(const char string[], int tamanho){
     return status;
 }
 
-int integridadeCPF(char cpf[]){
+int integridadeCPF(char* cpf){
     int i, j, digito1 = 0, digito2 = 0;
     if((strcmp(cpf,"00000000000") == 0) || (strcmp(cpf,"11111111111") == 0) || (strcmp(cpf,"22222222222") == 0) ||
        (strcmp(cpf,"33333333333") == 0) || (strcmp(cpf,"44444444444") == 0) || (strcmp(cpf,"55555555555") == 0) ||
