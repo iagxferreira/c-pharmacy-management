@@ -2,14 +2,16 @@
 // Created by Iago Ferreira on 22/01/2021.
 //
 
-#ifndef C_PHARMACY_MODEL_PRODUTO_H
-#define C_PHARMACY_MODEL_PRODUTO_H
+#ifndef PHARMACY_MODEL_PRODUTO_H
+#define PHARMACY_MODEL_PRODUTO_H
+
+#include "../utils/Utils.h"
 
 typedef struct{
     int id;
-    char nome[100];
+    char nome[TAMANHO_NOME];
     int quantidadeEstoque;
     float valorVenda;
 }Produto;
 
-#endif //C_PHARMACY_MODEL_PRODUTO_H
+#endif //PHARMACY_MODEL_PRODUTO_H

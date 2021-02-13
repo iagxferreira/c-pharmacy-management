@@ -73,8 +73,7 @@ void cadastrarProduto(FILE* arquivo){
     Produto produto;
     int quit;
     do{
-        fseek(arquivo, 0, SEEK_END);
-        produto.id = ftell(arquivo)/sizeof(Produto) + 1;
+        produto.id = gerarID(arquivo, sizeof(Produto));
         if(procurarProduto(arquivo, produto.id) == -1){
             setbuf(stdin, NULL);
             printf("Forneça o nome do produto: ");

@@ -2,12 +2,17 @@
 // Created by Iago Ferreira on 22/01/2021.
 //
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "Utils.h"
 
-void lerString(char* string, int tamanho){
+void lerString(char* string, int tamanho, const char* message){
+    char buffer[256];
     setbuf(stdin, NULL);
-    fgets(string, tamanho, stdin);
+    fgets(buffer, 256, stdin);
     setbuf(stdin, NULL);
+    strtok(buffer, "\n");
+    strcpy(string, buffer);
 }
 
 void lerInteiro(int* numero){
@@ -15,15 +20,10 @@ void lerInteiro(int* numero){
     setbuf(stdin, NULL);
     fgets(buffer, 256, stdin);
     setbuf(stdin, NULL);
-    *var = atoi(buffer);
+    *numero = atoi(buffer);
 }
 
-void limparString(char *string){
-    if(string[strlen(string) - 1 ] == '\n')
-        string[strlen(string) - 1 ] = '\0'
-}
-
-void estaNoIntervalo(const int numero, int base, int topo){
+int estaNoIntervalo(const int numero, int base, int topo){
     if(numero < base || numero > topo)
         return 0;
     return 1;
@@ -46,10 +46,10 @@ int validaCPF(char* cpf){
 int verificaInteiros(const char* string, int tamanho){
     int i=0, status = 0;
     do{
-        if(estaNoIntervalo(var[i], '0', '9'))
+        if(estaNoIntervalo(string[i], '0', '9'))
             status++;
         i++;
-    }while(i<tam);
+    }while(i<tamanho);
     return status;
 }
 
@@ -87,4 +87,9 @@ int integridadeCPF(char* cpf){
         }
     }
     return 1;
+}
+
+int gerarID(FILE* arquivo, size_t tamanhoEstrutura){
+    fseek(arquivo, 0, SEEK_END);
+    return (int) ftell(arquivo) / tamanhoEstrutura;
 }

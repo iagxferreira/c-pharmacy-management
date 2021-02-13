@@ -43,6 +43,7 @@ int menu(){
                 break;
             case 8:
                 menuRelatorios();
+                break;
         }
     }while (opcao != 0);
     return 0;
@@ -71,9 +72,6 @@ int menuCliente() {
                     break;
                 case 4:
                     listarClientes(arquivoClientes);
-                    break;
-                case 5:
-                    deletarCliente(arquivoClientes);
                     break;
             }
         }while (opcao != 0);
@@ -104,9 +102,6 @@ int menuProduto() {
                 case 4:
                     listarProdutos(arquivo);
                     break;
-                case 5:
-                    deletarProduto(arquivo);
-                    break;
             }
         }while (opcao != 0);
     }
@@ -122,7 +117,7 @@ int menuVendedor() {
     if (arquivo != NULL) {
         do {
             system("cls");
-            printf("\n\n-----Vendedor-----\n\n1- Cadastro\n2- Consulta\n3- Alterar\n4- Listar\n5- Deletar\n0- Sair: ");
+            printf("\n\n-----Vendedor-----\n\n1- Cadastro\n2- Consulta\n3- Alterar\n4- Listar\n0- Sair: ");
             scanf("%d", &opcao);
             switch (opcao) {
                 case 1:
@@ -136,9 +131,6 @@ int menuVendedor() {
                     break;
                 case 4:
                     listarVendedores(arquivo);
-                    break;
-                case 5:
-                    deletarVendedor(arquivo);
                     break;
             }
         }while (opcao != 0);
@@ -155,7 +147,7 @@ int menuFornecedor() {
     if (arquivo != NULL) {
         do {
             system("cls");
-            printf("\n\n-----Cliente-----\n\n1- Cadastro\n2- Consulta\n3- Alterar\n4- Listar\n5- Deletar\n0- Sair: ");
+            printf("\n\n-----Fornecedor-----\n\n1- Cadastro\n2- Consulta\n3- Alterar\n4- Listar\n0- Sair: ");
             scanf("%d", &opcao);
             switch (opcao) {
                 case 1:
@@ -169,9 +161,6 @@ int menuFornecedor() {
                     break;
                 case 4:
                     listarFornecedores(arquivo);
-                    break;
-                case 5:
-                    deletarFornecedor(arquivo);
                     break;
             }
         }while (opcao != 0);
@@ -188,7 +177,7 @@ int menuEfetuarVenda() {
     if (arquivo != NULL) {
         do {
             system("cls");
-            printf("\n\n-----Cliente-----\n\n1- Cadastro\n2- Consulta\n3- Alterar\n4- Listar\n5- Deletar\n0- Sair: ");
+            printf("\n\n-----Efetuar Venda-----\n\n0- Sair: ");
             scanf("%d", &opcao);
             switch (opcao) {
                 case 1:
@@ -230,9 +219,6 @@ int menuEfetuarCompra(){
                     break;
                 case 4:
                     listarClientes(arquivoClientes);
-                    break;
-                case 5:
-                    deletarCliente(arquivoClientes);
                     break;
             }
         }while (opcao != 0);

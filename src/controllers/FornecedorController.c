@@ -30,52 +30,43 @@ void atualizarFornecedor(FILE* arquivo){
     posicao = procurarFornecedor(arquivo, id);
     if(posicao != -1) {
 
-        setbuf(stdin, NULL);
-        printf("Forneça o CNPJ do fornecedor: ");
-        fgets(fornecedor.cnpj, TAMANHO_CNPJ, stdin);
-        strtok(fornecedor.cnpj, '\n');
+        lerString(fornecedor.cnpj, TAMANHO_CNPJ, "\nForneça o CNPJ do fornecedor: ");
 
-        setbuf(stdin, NULL);
-        printf("Forneça o nome do fornecedor: ");
-        fgets(fornecedor.nome, TAMANHO_NOME, stdin);
-        strtok(fornecedor.nome, '\n');
+        lerString(fornecedor.nome, TAMANHO_NOME, "\nForneça o nome do fornecedor: ");
 
-        setbuf(stdin, NULL);
-        printf("Forneça o email do fornecedor: ");
-        fgets(fornecedor.email, TAMANHO_EMAIL, stdin);
-        strtok(fornecedor.email, '\n');
+        lerString(fornecedor.email, TAMANHO_EMAIL, "\nForneça o e-mail do fornecedor: ");
 
-        setbuf(stdin, NULL);
-        printf("Forneça o telefone do fornecedor: ");
-        fgets(fornecedor.telefone, TAMANHO_TELEFONE, stdin);
-        strtok(fornecedor.telefone, '\n');
+        lerString(fornecedor.telefone, TAMANHO_TELEFONE, "\nForneça o telefone do fornecedor: ");
 
         fseek(arquivo, 0, SEEK_END);
-        fwrite(&cliente, sizeof(Fornecedor), 1, arquivo);
+        fwrite(&fornecedor, sizeof(Fornecedor), 1, arquivo);
+    }else{
+        printf("\nFornecedor nao encontrado.");
     }
 }
 
 void listarFornecedores(FILE* arquivo){
-    Fornecedor cliente;
+    Fornecedor fornecedor;
     //Posicionando o file pointer no início do arquivo
     rewind(arquivo);
     //Le do arquivo "arquivo", 1 registro do tamanho da estrutura "Fornecedor" e guarda na variável "cliente"
-    while(fread(&cliente, sizeof(Fornecedor),1, arquivo) == 1)
-        printf("\nMatricula: %d\nNome: %s\nCPF: %s\ne-mail: %s\nTelefone: %s",
-               cliente.id, cliente.nome, cliente.cpf,cliente.email, cliente.telefone);
+    while(fread(&fornecedor, sizeof(Fornecedor),1, arquivo) == 1)
+        printf("\nId: %d\nNome: %s\nCNPJ: %s\ne-mail: %s\nTelefone: %s",
+               fornecedor.id, fornecedor.nome, fornecedor.cnpj,fornecedor.email, fornecedor.telefone);
 }
 
 void lerFornecedor(FILE* arquivo){
-    Fornecedor cliente;
+    Fornecedor fornecedor;
     int id, posicao;
     printf("\nForneça o id: ");
     scanf("%d", &id);
     posicao = procurarFornecedor(arquivo, id);
     if(posicao != -1) {
         rewind(arquivo);
-        fseek(arquivo, posicao * sizeof(cliente), SEEK_SET);
+        fseek(arquivo, posicao * sizeof(Fornecedor), SEEK_SET);
         fread(&fornecedor, sizeof(Fornecedor), 1, arquivo);
-        printf("\nId: %d\nName: %s\nCPF: %s\n", fornecedor.id, fornecedor.nome, fornecedor.cpf);
+        printf("\nId: %d\nNome: %s\nCNPJ: %s\ne-mail: %s\nTelefone: %s",
+               fornecedor.id, fornecedor.nome, fornecedor.cnpj,fornecedor.email, fornecedor.telefone);
     }
 }
 
@@ -86,37 +77,19 @@ void deletarFornecedor(FILE* arquivo){
 void cadastrarFornecedor(FILE* arquivo){
     Fornecedor fornecedor;
     int quit;
+    fornecedor.id = gerarID(arquivo, sizeof(Fornecedor));
     do{
-        printf("\nForneça a matrícula: ");
-        scanf("%d", &fornecedor.id);
-        if(procurarFornecedor(arquivo, cliente.id) == -1){
 
-            setbuf(stdin, NULL);
-            printf("Forneça o CNPJ do fornecedor: ");
-            fgets(fornecedor.cnpj, TAMANHO_CNPJ, stdin);
-            strtok(fornecedor.cnpj, '\n');
+        lerString(fornecedor.cnpj, TAMANHO_CNPJ, "Forneça o CNPJ do fornecedor: ");
 
-            setbuf(stdin, NULL);
-            printf("Forneça o nome do fornecedor: ");
-            fgets(fornecedor.nome, TAMANHO_NOME, stdin);
-            strtok(fornecedor.nome, '\n');
+        lerString(fornecedor.nome, TAMANHO_NOME, "Forneça o nome do fornecedor: ");
 
-            setbuf(stdin, NULL);
-            printf("Forneça o email do fornecedor: ");
-            fgets(fornecedor.email, TAMANHO_EMAIL, stdin);
-            strtok(fornecedor.email, '\n');
+        lerString(fornecedor.email, TAMANHO_EMAIL, "Forneça o e-mail do fornecedor: ");
 
-            setbuf(stdin, NULL);
-            printf("Forneça o telefone do fornecedor: ");
-            fgets(fornecedor.telefone, TAMANHO_TELEFONE, stdin);
-            strtok(fornecedor.telefone, '\n');
+        lerString(fornecedor.telefone, TAMANHO_TELEFONE, "Forneça o telefone do fornecedor: ");
 
-            fseek(arquivo, 0, SEEK_END);
-            fwrite(&cliente, sizeof(Fornecedor), 1, arquivo);
-        }else{
-            printf("Matrícula já cadastrada");
-            break;
-        }
+        fseek(arquivo, 0, SEEK_END);
+        fwrite(&fornecedor, sizeof(Fornecedor), 1, arquivo);
         printf("Deseja sair?\n1- Sim 2-Não");
         scanf("%d", &quit);
     }while(quit != 1);

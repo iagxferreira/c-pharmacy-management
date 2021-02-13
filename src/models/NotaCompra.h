@@ -5,11 +5,13 @@
 #ifndef C_PHARMACY_MODEL_NOTACOMPRA_H
 #define C_PHARMACY_MODEL_NOTACOMPRA_H
 
+#include "../utils/Utils.h"
+
 typedef struct{
     unsigned long int id;
-    char numero[10];
+    char numero[TAMANHO_NUMERO];
     unsigned long int idFornecedor;
-    char dataCompra[11];
+    char dataCompra[TAMANHO_DATA];
     float valorTotal;
 }NotaCompra;
 

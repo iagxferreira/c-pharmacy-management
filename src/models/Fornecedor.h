@@ -2,15 +2,17 @@
 // Created by Iago Ferreira on 22/01/2021.
 //
 
-#ifndef C_PHARMACY_MODEL_FORNECEDOR_H
-#define C_PHARMACY_MODEL_FORNECEDOR_H
+#ifndef PHARMACY_MODEL_FORNECEDOR_H
+#define PHARMACY_MODEL_FORNECEDOR_H
+
+#include "../utils/Utils.h"
 
 typedef struct{
     unsigned long int id;
-    char cnpj[15];
-    char nome[100];
-    char email[50];
-    char telefone[15];
+    char cnpj[TAMANHO_CNPJ];
+    char nome[TAMANHO_NOME];
+    char email[TAMANHO_EMAIL];
+    char telefone[TAMANHO_TELEFONE];
 }Fornecedor;
 
-#endif //C_PHARMACY_MODEL_FORNECEDOR_H
+#endif //PHARMACY_MODEL_FORNECEDOR_H

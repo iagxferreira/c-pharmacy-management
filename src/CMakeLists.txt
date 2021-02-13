@@ -6,17 +6,24 @@ set(CMAKE_C_STANDARD 99)
 add_executable(
         pharmacy-management
         main.c
+        utils/Utils.h utils/Utils.c
         Pharmacy.c Pharmacy.h
         models/Cliente.h
-        models/Produto.h
-        models/NotaFiscal.h
-        models/ItemNotaFiscal.h
-        models/Vendedor.h
         models/Fornecedor.h
-        models/NotaCompra.h
         models/ItemCompra.h
-        controllers/FornecedorController.c controllers/ClienteController.h
+        models/ItemNotaFiscal.h
+        models/NotaCompra.h
+        models/NotaFiscal.h
+        models/Produto.h
+        models/Vendedor.h
+        controllers/ClienteController.c controllers/ClienteController.h
+        controllers/CompraController.c controllers/CompraController.h
+        controllers/FornecedorController.c controllers/FornecedorController.h
+        controllers/NotaCompraController.c controllers/NotaCompraController.h
+        controllers/NotaFiscalController.c controllers/NotaFiscalController.h
         controllers/ProdutoController.c controllers/ProdutoController.h
-        utils/Utils.h
+        controllers/RelatorioController.c controllers/RelatorioController.h
+        controllers/VendaController.c controllers/VendaController.h
+        controllers/VendedorController.c controllers/VendedorController.h
         view/Menu.c view/Menu.h
-        controllers/NotaFiscalController.c controllers/NotaFiscalController.h controllers/CompraController.cpp controllers/CompraController.h controllers/VendaController.c controllers/VendaController.h controllers/NotaCompraController.cpp controllers/NotaCompraController.h controllers/RelatorioController.c controllers/RelatorioController.h)
+)

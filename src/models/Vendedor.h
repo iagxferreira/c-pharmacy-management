@@ -2,16 +2,18 @@
 // Created by Iago Ferreira on 22/01/2021.
 //
 
-#ifndef C_PHARMACY_MODEL_VENDEDOR_H
-#define C_PHARMACY_MODEL_VENDEDOR_H
+#ifndef PHARMACY_MODEL_VENDEDOR_H
+#define PHARMACY_MODEL_VENDEDOR_H
+
+#include "../utils/Utils.h"
 
 typedef struct{
     int id;
-    char matricula[10];
-    char nome[100];
-    char cpf[12];
-    char email[50];
-    char telefone[15];
+    char matricula[TAMANHO_MATRICULA];
+    char nome[TAMANHO_NOME];
+    char cpf[TAMANHO_CPF];
+    char email[TAMANHO_EMAIL];
+    char telefone[TAMANHO_TELEFONE];
 }Vendedor;
 
-#endif //C_PHARMACY_MODEL_VENDEDOR_H
+#endif //PHARMACY_MODEL_VENDEDOR_H
