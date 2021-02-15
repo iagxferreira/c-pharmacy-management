@@ -70,10 +70,6 @@ void lerFornecedor(FILE* arquivo){
     }
 }
 
-void deletarFornecedor(FILE* arquivo){
-    printf("ok");
-}
-
 void cadastrarFornecedor(FILE* arquivo){
     Fornecedor fornecedor;
     int quit;

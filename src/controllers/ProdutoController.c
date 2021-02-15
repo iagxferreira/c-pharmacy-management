@@ -65,22 +65,17 @@ void lerProduto(FILE* arquivo){
     }
 }
 
-void deletarProduto(FILE* arquivo){
-    printf("ok");
-}
-
 void cadastrarProduto(FILE* arquivo){
     Produto produto;
     int quit;
     do{
         produto.id = gerarID(arquivo, sizeof(Produto));
         if(procurarProduto(arquivo, produto.id) == -1){
-            setbuf(stdin, NULL);
-            printf("Forneça o nome do produto: ");
-            fgets(produto.nome, TAMANHO_NOME, stdin);
-            setbuf(stdin, NULL);
-            printf("Forneça a quantidade de estoque do produto: ");
-            scanf("%d", &produto.quantidadeEstoque);
+
+            lerString(produto.nome, TAMANHO_NOME, "Forneça o nome do produto: ");
+
+            produto.quantidadeEstoque = 0;
+
             printf("Forneça o valor de venda do produto: ");
             scanf("%f", &produto.valorVenda);
             fwrite(&produto, sizeof(Produto), 1, arquivo);

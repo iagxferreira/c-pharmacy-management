@@ -15,6 +15,4 @@ void atualizarCliente(FILE*);
 
 void listarClientes(FILE*);
 
-void deletarCliente(FILE*);
-
 #endif //PHARMACY_CONTROLLER_CLIENTE_H

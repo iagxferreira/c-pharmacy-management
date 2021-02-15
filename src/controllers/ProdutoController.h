@@ -17,6 +17,4 @@ void atualizarProduto(FILE*);
 
 void listarProdutos(FILE*);
 
-void deletarProduto(FILE*);
-
 #endif //PHARMACY_CONTROLLER_PRODUTO_H

@@ -9,6 +9,8 @@
 #include "../controllers/ProdutoController.h"
 #include "../controllers/VendedorController.h"
 #include "../controllers/FornecedorController.h"
+#include "../controllers/CompraController.h"
+
 
 #include "Menu.h"
 
@@ -197,28 +199,28 @@ int menuEfetuarVenda() {
 }
 
 int menuEfetuarCompra(){
-    FILE *arquivoClientes;
+    FILE *arquivo;
     int opcao = 0;
-    arquivoClientes = fopen(ARQUIVO_CLIENTE, "rb+");
-    if (arquivoClientes == NULL)
-        arquivoClientes = fopen(ARQUIVO_CLIENTE, "wb+");
-    if (arquivoClientes != NULL) {
+    arquivo = fopen(ARQUIVO_CLIENTE, "rb+");
+    if (arquivo == NULL)
+        arquivo = fopen(ARQUIVO_CLIENTE, "wb+");
+    if (arquivo != NULL) {
         do {
             system("cls");
-            printf("\n\n-----Cliente-----\n\n1- Cadastro\n2- Consulta\n3- Alterar\n4- Listar\n5- Deletar\n0- Sair: ");
+            printf("\n\n-----Cliente-----\n");
             scanf("%d", &opcao);
             switch (opcao) {
                 case 1:
-                    cadastrarCliente(arquivoClientes);
+                    cadastrarCliente(arquivo);
                     break;
                 case 2:
-                    lerCliente(arquivoClientes);
+                    lerCliente(arquivo);
                     break;
                 case 3:
-                    atualizarCliente(arquivoClientes);
+                    atualizarCliente(arquivo);
                     break;
                 case 4:
-                    listarClientes(arquivoClientes);
+                    listarClientes(arquivo);
                     break;
             }
         }while (opcao != 0);

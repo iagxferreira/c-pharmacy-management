@@ -15,14 +15,6 @@ void lerString(char* string, int tamanho, const char* message){
     strcpy(string, buffer);
 }
 
-void lerInteiro(int* numero){
-    char buffer[256];
-    setbuf(stdin, NULL);
-    fgets(buffer, 256, stdin);
-    setbuf(stdin, NULL);
-    *numero = atoi(buffer);
-}
-
 int estaNoIntervalo(const int numero, int base, int topo){
     if(numero < base || numero > topo)
         return 0;

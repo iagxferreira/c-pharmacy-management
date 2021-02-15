@@ -18,16 +18,14 @@
 #define TAMANHO_NUMERO 10
 #define TAMANHO_DATA 11
 #define TAMANHO_NOTA 8
-
+#define TAMANHO_CARRINHO 50
+#define TAMANHO_PASSWORD 20
 
 #define ARQUIVO_CLIENTE "Cliente.dat"
 #define ARQUIVO_PRODUTO "Produto.dat"
 #define ARQUIVO_VENDEDOR "Vendedor.dat"
-#define ARQUIVO_NOTAFISCAL "NotaFiscal.dat"
 
 void lerString(char*, int, const char*);
-
-void lerInteiro(int*);
 
 int estaNoIntervalo(const int, int, int);
 

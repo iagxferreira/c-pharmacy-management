@@ -17,13 +17,8 @@ add_executable(
         models/Produto.h
         models/Vendedor.h
         controllers/ClienteController.c controllers/ClienteController.h
-        controllers/CompraController.c controllers/CompraController.h
         controllers/FornecedorController.c controllers/FornecedorController.h
-        controllers/NotaCompraController.c controllers/NotaCompraController.h
-        controllers/NotaFiscalController.c controllers/NotaFiscalController.h
         controllers/ProdutoController.c controllers/ProdutoController.h
-        controllers/RelatorioController.c controllers/RelatorioController.h
-        controllers/VendaController.c controllers/VendaController.h
         controllers/VendedorController.c controllers/VendedorController.h
         view/Menu.c view/Menu.h
 )

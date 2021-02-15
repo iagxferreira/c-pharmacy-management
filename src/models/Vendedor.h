@@ -9,11 +9,11 @@
 
 typedef struct{
     int id;
-    char matricula[TAMANHO_MATRICULA];
     char nome[TAMANHO_NOME];
     char cpf[TAMANHO_CPF];
     char email[TAMANHO_EMAIL];
     char telefone[TAMANHO_TELEFONE];
+    char password[TAMANHO_PASSWORD];
 }Vendedor;
 
 #endif //PHARMACY_MODEL_VENDEDOR_H
